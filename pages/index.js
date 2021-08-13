@@ -26,15 +26,19 @@ const Results = ({ results }) => {
             <th className={styles.cell}>Today&#39;s Deaths</th>
           </tr>
         </thead>
-        <tbody>
-          {results.map((result) => (
-            <tr key={result.id}>
-              <td className={styles.cell}>{result.country}</td>
-              <td className={styles.cell}>{result.todayCases}</td>
-              <td className={styles.cell}>{result.todayDeaths}</td>
-            </tr>
-          ))}
-        </tbody>
+
+        {results.map((result) => {
+          const { id, country, todayCases, todayDeaths } = result;
+          return (
+            <tbody key={id}>
+              <tr>
+                <td className={styles.cell}>{country}</td>
+                <td className={styles.cell}>{todayCases}</td>
+                <td className={styles.cell}>{todayDeaths}</td>
+              </tr>
+            </tbody>
+          );
+        })}
       </table>
     </div>
   );

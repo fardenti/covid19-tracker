@@ -1,9 +1,16 @@
 import { QueryClient, useQuery } from "react-query";
 import { useRouter } from "next/router";
-import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/react";
+import CircleLoader from "react-spinners/CircleLoader";
 import Image from "next/image";
 
 import styles from "../../styles/Home.module.css";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const Country = () => {
   const router = useRouter();
@@ -16,7 +23,8 @@ const Country = () => {
   );
   const results = data;
 
-  if (isLoading) return <ClipLoader size={50} />;
+  if (isLoading)
+    return <CircleLoader color={`#36D7B7`} css={override} size={50} />;
 
   if (error) return "An error has occurred: " + error.message;
 

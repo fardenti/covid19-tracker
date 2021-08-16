@@ -1,3 +1,6 @@
+import React from "react";
+import Link from "next/link";
+
 import styles from "../styles/Home.module.css";
 
 const defaultEndpoint = "https://corona.lmao.ninja/v2/countries";
@@ -14,6 +17,7 @@ export async function getStaticProps() {
 
 const Results = ({ results }) => {
   console.log(results);
+
   return (
     <div className={styles.container}>
       <h2>Covid 19 Tracker</h2>
@@ -28,11 +32,14 @@ const Results = ({ results }) => {
         </thead>
 
         {results.map((result) => {
-          const { id, country, todayCases, todayDeaths } = result;
+          const { id, country, todayCases, todayDeaths, countryInfo } = result;
+          console.log(countryInfo._id);
           return (
             <tbody key={id}>
               <tr>
-                <td className={styles.cell}>{country}</td>
+                <td className={styles.cell}>
+                  <Link href={`/country/${countryInfo._id}`}>{country}</Link>
+                </td>
                 <td className={styles.cell}>{todayCases}</td>
                 <td className={styles.cell}>{todayDeaths}</td>
               </tr>

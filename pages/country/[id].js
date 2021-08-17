@@ -3,12 +3,13 @@ import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import CircleLoader from "react-spinners/CircleLoader";
 import Image from "next/image";
+import Navbar from "../../components/Navbar.js";
 
 import styles from "../../styles/Home.module.css";
 
 const override = css`
   display: block;
-  margin: 0 auto;
+  margin: auto;
   border-color: red;
 `;
 
@@ -31,6 +32,7 @@ const Country = () => {
   const { country, population, countryInfo, cases, critical, recovered } = data;
   return (
     <div className={styles.container}>
+      <Navbar />
       <table className={styles.table}>
         <tr>
           <td className={styles.cell}>

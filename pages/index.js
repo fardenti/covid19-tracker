@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Navbar from "../components/Navbar.js";
 
 import styles from "../styles/Home.module.css";
 
@@ -21,6 +22,7 @@ const Results = ({ results }) => {
 
   return (
     <div className={styles.container}>
+      <Navbar />
       <h2>Covid 19 Tracker</h2>
       <h3>Today&#39;s Data</h3>
       <table className={styles.table}>

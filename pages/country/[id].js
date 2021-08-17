@@ -28,9 +28,9 @@ const Country = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  const { country, countryInfo, population, recovered, todayRecovered } = data;
+  const { country, population, countryInfo, cases, critical, recovered } = data;
   return (
-    <div key={id} className={styles.container}>
+    <div className={styles.container}>
       <table className={styles.table}>
         <tr>
           <td className={styles.cell}>
@@ -45,8 +45,9 @@ const Country = () => {
             />
           </td>
           <td className={styles.cell}> Population: {population}</td>
-          <td className={styles.cell}> Recovered: {recovered}</td>
-          <td className={styles.cell}> TodayRecovered: {todayRecovered}</td>
+          <td className={styles.cell}> Total cases to date: {cases}</td>
+          <td className={styles.cell}> Total Recovered: {recovered}</td>
+          <td className={styles.cell}> Current Critical: {critical}</td>
         </tr>
       </table>
     </div>

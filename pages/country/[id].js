@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import CircleLoader from "react-spinners/CircleLoader";
 import Image from "next/image";
 import Navbar from "../../components/Navbar.js";
+import cx from "classnames";
 
 import styles from "../../styles/Home.module.css";
 
@@ -35,21 +36,27 @@ const Country = () => {
       <Navbar />
       <table className={styles.table}>
         <tr>
-          <td className={styles.cell}>
-            {" "}
-            Country: {country} <br />
+          <td className={styles.cell}>Country:</td>
+          <td className={styles.cell}>Population:</td>
+          <td className={styles.cell}>Total cases to date:</td>
+          <td className={styles.cell}>Total recovered to date:</td>
+          <td className={styles.cell}>Currently Critical:</td>
+        </tr>
+        <tr>
+          <td className={cx(styles.cell, styles.countryName)}>
             <Image
               src={countryInfo.flag}
               alt="flag"
               className={styles.image}
-              width={50}
-              height={50}
+              width={20}
+              height={20}
             />
+            {country}
           </td>
-          <td className={styles.cell}> Population: {population}</td>
-          <td className={styles.cell}> Total cases to date: {cases}</td>
-          <td className={styles.cell}> Total Recovered: {recovered}</td>
-          <td className={styles.cell}> Current Critical: {critical}</td>
+          <td className={styles.cell}>{population}</td>
+          <td className={styles.cell}>{cases}</td>
+          <td className={styles.cell}>{recovered}</td>
+          <td className={styles.cell}>{critical}</td>
         </tr>
       </table>
     </div>

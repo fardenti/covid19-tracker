@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
+import cx from "classnames";
 
 import styles from "../styles/Home.module.css";
 
@@ -48,16 +49,15 @@ const Results = ({ results }) => {
           return (
             <tbody key={id}>
               <tr>
-                <td className={styles.cell}>
-                  <Link href={`/country/${countryInfo._id}`}>{country}</Link>
-                  <br />
+                <td className={cx(styles.cell, styles.countryName)}>
                   <Image
                     src={countryInfo.flag}
                     alt="flag"
                     className={styles.image}
                     width={20}
                     height={20}
-                  />
+                  />{" "}
+                  <Link href={`/country/${countryInfo._id}`}>{country}</Link>
                 </td>
                 <td className={styles.cell}>{todayCases}</td>
                 <td className={styles.cell}>{todayRecovered}</td>

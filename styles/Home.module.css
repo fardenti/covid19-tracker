@@ -3,13 +3,30 @@
   margin: auto;
 }
 
-.table {
+.table,
+.detailsTable {
   display: inline-block;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 115%;
+  overflow: auto;
+  width: auto;
 }
 
+.detailsTable .headings {
+  background-color: rgb(57 114 140);
+}
 .cell {
-  border: 1px solid black;
-  padding: 1%;
+  background-color: rgb(238, 238, 238);
+  color: rgb(111, 111, 111);
+  padding: 10px 30px;
+}
+
+.headings {
+  background-color: rgb(196 172 105);
+  color: white;
+  font-weight: normal;
+  padding: 20px 30px;
   text-align: center;
 }
 

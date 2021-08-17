@@ -34,13 +34,19 @@ const Country = () => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <table className={styles.table}>
+      <table className={styles.detailsTable}>
         <tr>
-          <td className={styles.cell}>Country:</td>
-          <td className={styles.cell}>Population:</td>
-          <td className={styles.cell}>Total cases to date:</td>
-          <td className={styles.cell}>Total recovered to date:</td>
-          <td className={styles.cell}>Currently Critical:</td>
+          <td className={cx(styles.cell, styles.headings)}>Country:</td>
+          <td className={cx(styles.cell, styles.headings)}>Population:</td>
+          <td className={cx(styles.cell, styles.headings)}>
+            Total cases to date:
+          </td>
+          <td className={cx(styles.cell, styles.headings)}>
+            Total recovered to date:
+          </td>
+          <td className={cx(styles.cell, styles.headings)}>
+            Currently Critical:
+          </td>
         </tr>
         <tr>
           <td className={cx(styles.cell, styles.countryName)}>
@@ -50,7 +56,7 @@ const Country = () => {
               className={styles.image}
               width={20}
               height={20}
-            />
+            />{" "}
             {country}
           </td>
           <td className={styles.cell}>{population}</td>

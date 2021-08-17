@@ -18,21 +18,28 @@ export async function getStaticProps() {
   };
 }
 
-const Results = ({ results }) => {
-  console.log(results);
+let Today = new Date();
+const CurrentDate = Today.toISOString().split("T")[0];
 
+const Results = ({ results }) => {
   return (
     <div className={styles.container}>
       <Navbar />
       <h2>Covid 19 Tracker</h2>
-      <h3>Today&#39;s Data</h3>
+      <h3>Data Updated on: {CurrentDate}</h3>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={styles.cell}>Country</th>
-            <th className={styles.cell}>Today&#39;s Cases</th>
-            <th className={styles.cell}>Today&#39;s Recovered</th>
-            <th className={styles.cell}>Today&#39;s Deaths</th>
+            <th className={cx(styles.cell, styles.headings)}>Country</th>
+            <th className={cx(styles.cell, styles.headings)}>
+              Today&#39;s Cases
+            </th>
+            <th className={cx(styles.cell, styles.headings)}>
+              Today&#39;s Recovered
+            </th>
+            <th className={cx(styles.cell, styles.headings)}>
+              Today&#39;s Deaths
+            </th>
           </tr>
         </thead>
 
@@ -45,7 +52,7 @@ const Results = ({ results }) => {
             todayRecovered,
             countryInfo,
           } = result;
-          console.log(countryInfo._id);
+
           return (
             <tbody key={id}>
               <tr>

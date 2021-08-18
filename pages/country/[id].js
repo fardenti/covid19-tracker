@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import CircleLoader from "react-spinners/CircleLoader";
 import Image from "next/image";
 import Navbar from "../../components/Navbar.js";
+import TodaysDate from "../../components/Date.js";
 import cx from "classnames";
 
 import styles from "../../styles/Home.module.css";
@@ -34,17 +35,22 @@ const Country = () => {
   return (
     <div className={styles.container}>
       <Navbar />
+      <h2 className={styles.topHeader}>Details for {country}</h2>
+      <h3 className={styles.date}>
+        Last updated: <TodaysDate />
+      </h3>
+
       <table className={styles.detailsTable}>
         <tr>
-          <td className={cx(styles.cell, styles.headings)}>Country:</td>
-          <td className={cx(styles.cell, styles.headings)}>Population:</td>
-          <td className={cx(styles.cell, styles.headings)}>
+          <td className={cx(styles.cell, styles.cellHeadings)}>Country:</td>
+          <td className={cx(styles.cell, styles.cellHeadings)}>Population:</td>
+          <td className={cx(styles.cell, styles.cellHeadings)}>
             Total cases to date:
           </td>
-          <td className={cx(styles.cell, styles.headings)}>
+          <td className={cx(styles.cell, styles.cellHeadings)}>
             Total recovered to date:
           </td>
-          <td className={cx(styles.cell, styles.headings)}>
+          <td className={cx(styles.cell, styles.cellHeadings)}>
             Currently Critical:
           </td>
         </tr>

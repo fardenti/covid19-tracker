@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
+import TodaysDate from "../components/Date.js";
 import cx from "classnames";
 
 import styles from "../styles/Home.module.css";
@@ -18,26 +19,25 @@ export async function getStaticProps() {
   };
 }
 
-let Today = new Date();
-const CurrentDate = Today.toISOString().split("T")[0];
-
 const Results = ({ results }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <h2>Covid 19 Tracker</h2>
-      <h3>Data Updated on: {CurrentDate}</h3>
+      <h2 className={styles.topHeader}>Covid 19 Tracker</h2>
+      <h3 className={styles.date}>
+        Last updated: <TodaysDate />
+      </h3>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={cx(styles.cell, styles.headings)}>Country</th>
-            <th className={cx(styles.cell, styles.headings)}>
+            <th className={cx(styles.cell, styles.cellHeadings)}>Country</th>
+            <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Cases
             </th>
-            <th className={cx(styles.cell, styles.headings)}>
+            <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Recovered
             </th>
-            <th className={cx(styles.cell, styles.headings)}>
+            <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Deaths
             </th>
           </tr>

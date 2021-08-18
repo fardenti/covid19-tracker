@@ -13,7 +13,25 @@
   width: auto;
 }
 
-.detailsTable .headings {
+.topHeader {
+  color: rgb(111, 111, 111);
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.date {
+  color: rgb(111, 111, 111);
+  font-weight: normal;
+  font-size: 1em;
+  text-align: center;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.detailsTable .cellHeadings {
   background-color: rgb(57 114 140);
 }
 .cell {
@@ -22,9 +40,9 @@
   padding: 10px 30px;
 }
 
-.headings {
+.cellHeadings {
   background-color: rgb(196 172 105);
-  color: white;
+  color: #ffffff;
   font-weight: normal;
   padding: 20px 30px;
   text-align: center;

@@ -1,9 +1,9 @@
 import React from "react";
 
-const TodaysDate = () => {
-  let Today = new Date();
-  const CurrentDate = Today.toISOString().split("T")[0];
-  return CurrentDate;
+const todaysDate = () => {
+  let today = new Date();
+  const currentDate = today.toISOString().split("T")[0];
+  return currentDate;
 };
 
-export default TodaysDate;
+export default todaysDate;

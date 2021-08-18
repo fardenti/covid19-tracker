@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import CircleLoader from "react-spinners/CircleLoader";
 import Image from "next/image";
 import Navbar from "../../components/Navbar.js";
-import TodaysDate from "../../components/Date.js";
+import todaysDate from "../../components/Date.js";
 import cx from "classnames";
 
 import styles from "../../styles/Home.module.css";
@@ -24,7 +24,6 @@ const Country = () => {
       res.json()
     )
   );
-  const results = data;
 
   if (isLoading)
     return <CircleLoader color={`#36D7B7`} css={override} size={50} />;
@@ -36,9 +35,7 @@ const Country = () => {
     <div className={styles.container}>
       <Navbar />
       <h2 className={styles.topHeader}>Details for {country}</h2>
-      <h3 className={styles.date}>
-        Last updated: <TodaysDate />
-      </h3>
+      <h3 className={styles.date}>Last updated: {todaysDate()}</h3>
       {/* <div className={styles.container}>
         <h3 className={styles.title}>Country:</h3>
         <div>

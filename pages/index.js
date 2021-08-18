@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
-import TodaysDate from "../components/Date.js";
+import todaysDate from "../components/Date.js";
 import cx from "classnames";
 
 import styles from "../styles/Home.module.css";
@@ -24,9 +24,7 @@ const Results = ({ results }) => {
     <div className={styles.container}>
       <Navbar />
       <h2 className={styles.topHeader}>Covid 19 Tracker</h2>
-      <h3 className={styles.date}>
-        Last updated: <TodaysDate />
-      </h3>
+      <h3 className={styles.date}>Last updated: {todaysDate()}</h3>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -43,36 +41,36 @@ const Results = ({ results }) => {
           </tr>
         </thead>
 
-        {results.map((result) => {
-          const {
+        {results.map(
+          ({
             id,
             country,
             todayCases,
             todayDeaths,
             todayRecovered,
             countryInfo,
-          } = result;
-
-          return (
-            <tbody key={id}>
-              <tr>
-                <td className={cx(styles.cell, styles.countryName)}>
-                  <Image
-                    src={countryInfo.flag}
-                    alt="flag"
-                    className={styles.image}
-                    width={20}
-                    height={20}
-                  />{" "}
-                  <Link href={`/country/${countryInfo._id}`}>{country}</Link>
-                </td>
-                <td className={styles.cell}>{todayCases}</td>
-                <td className={styles.cell}>{todayRecovered}</td>
-                <td className={styles.cell}>{todayDeaths}</td>
-              </tr>
-            </tbody>
-          );
-        })}
+          }) => {
+            return (
+              <tbody key={countryInfo._id}>
+                <tr>
+                  <td className={cx(styles.cell, styles.countryName)}>
+                    <Image
+                      src={countryInfo.flag}
+                      alt="flag"
+                      className={styles.image}
+                      width={20}
+                      height={20}
+                    />{" "}
+                    <Link href={`/country/${countryInfo._id}`}>{country}</Link>
+                  </td>
+                  <td className={styles.cell}>{todayCases}</td>
+                  <td className={styles.cell}>{todayRecovered}</td>
+                  <td className={styles.cell}>{todayDeaths}</td>
+                </tr>
+              </tbody>
+            );
+          }
+        )}
       </table>
     </div>
   );

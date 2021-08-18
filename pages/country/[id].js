@@ -39,7 +39,21 @@ const Country = () => {
       <h3 className={styles.date}>
         Last updated: <TodaysDate />
       </h3>
-
+      {/* <div className={styles.container}>
+        <h3 className={styles.title}>Country:</h3>
+        <div>
+          <span>
+            <Image
+              src={countryInfo.flag}
+              alt="flag"
+              className={styles.image}
+              width={20}
+              height={20}
+            />{" "}
+            {country}
+          </span>
+        </div>
+      </div> */}
       <table className={styles.detailsTable}>
         <tr>
           <td className={cx(styles.cell, styles.cellHeadings)}>Country:</td>

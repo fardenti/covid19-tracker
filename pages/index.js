@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
@@ -21,11 +21,21 @@ export async function getStaticProps() {
 
 const Results = ({ results }) => {
   const [isDescending, setIsDescending] = useState(false);
+  const [columnName, setColumnName] = useState("country");
 
   const sortToDescending = (columnTitle) => {
-    results.sort((a, b) => (a[columnTitle] < b[columnTitle] ? 1 : -1));
+    return results.sort((a, b) => (a[columnTitle] < b[columnTitle] ? 1 : -1));
   };
 
+  const sortToAscending = (columnTitle) => {
+    return results.sort((a, b) => (a[columnTitle] > b[columnTitle] ? 1 : -1));
+  };
+
+  const sortedResults = useMemo(
+    () =>
+      isDescending ? sortToDescending(columnName) : sortToAscending(columnName),
+    [columnName, isDescending]
+  );
   console.log(results);
 
   return (
@@ -34,25 +44,70 @@ const Results = ({ results }) => {
       <h2 className={styles.topHeader}>Covid 19 Tracker</h2>
       <h3 className={styles.date}>Last updated: {todaysDate()}</h3>
       <table className={styles.table}>
-        <thead>
+        <thead className={styles.thead}>
           <tr>
-            <th className={cx(styles.cell, styles.cellHeadings)}>Country</th>
+            <th className={cx(styles.cell, styles.cellHeadings)}>
+              Country <br />
+              <button
+                onClick={() => {
+                  if (columnName === "country") {
+                    setIsDescending(!isDescending);
+                    return;
+                  }
+                  setColumnName("country");
+                  setIsDescending(true);
+                }}
+              >
+                sort by alehphabets
+              </button>
+            </th>
             <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Cases
               <br />
               <button
-                onClick={() =>
-                  setIsDescending(() => sortToDescending("todayCases"))
-                }
+                onClick={() => {
+                  if (columnName === "todayCases") {
+                    setIsDescending(!isDescending);
+                    return;
+                  }
+                  setColumnName("todayCases");
+                  setIsDescending(true);
+                }}
               >
-                sort descending
+                sort by Ascending / Descending
               </button>
             </th>
             <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Recovered
+              <br />
+              <button
+                onClick={() => {
+                  if (columnName === "todayRecovered") {
+                    setIsDescending(!isDescending);
+                    return;
+                  }
+                  setColumnName("todayRecovered");
+                  setIsDescending(true);
+                }}
+              >
+                sort by Ascending / Descending
+              </button>
             </th>
             <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Deaths
+              <br />
+              <button
+                onClick={() => {
+                  if (columnName === "todayDeaths") {
+                    setIsDescending(!isDescending);
+                    return;
+                  }
+                  setColumnName("todayDeaths");
+                  setIsDescending(true);
+                }}
+              >
+                sort by Ascending / Descending
+              </button>
             </th>
           </tr>
         </thead>

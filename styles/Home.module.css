@@ -9,8 +9,10 @@
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 115%;
-  overflow: auto;
   width: auto;
+  position: relative;
+  border-collapse: collapse;
+  z-index: 1000;
 }
 
 .topHeader {
@@ -40,19 +42,19 @@
   padding: 10px 30px;
 }
 
+.thead tr th {
+  position: sticky;
+  top: 0;
+}
 .cellHeadings {
   background-color: rgb(196 172 105);
   color: #ffffff;
   font-weight: normal;
   padding: 20px 30px;
   text-align: center;
+  position: sticky;
 }
 
 .countryName {
   text-align: left;
-}
-
-.image {
-  width: 40px;
-  height: 40px;
 }

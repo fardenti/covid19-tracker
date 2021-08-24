@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
@@ -20,7 +20,11 @@ export async function getStaticProps() {
 }
 
 const Results = ({ results }) => {
-  const [isDescending, sortData] = useState(false);
+  const [isDescending, setIsDescending] = useState(false);
+
+  const sortToDescending = (columnTitle) => {
+    results.sort((a, b) => (a[columnTitle] < b[columnTitle] ? 1 : -1));
+  };
 
   console.log(results);
 
@@ -38,11 +42,7 @@ const Results = ({ results }) => {
               <br />
               <button
                 onClick={() =>
-                  sortData(
-                    results.sort((a, b) =>
-                      a.todayCases < b.todayCases ? 1 : -1
-                    )
-                  )
+                  setIsDescending(() => sortToDescending("todayCases"))
                 }
               >
                 sort descending
@@ -66,6 +66,9 @@ const Results = ({ results }) => {
             todayRecovered,
             countryInfo,
           }) => {
+            if (typeof countryInfo._id !== "number") {
+              return null;
+            }
             return (
               <tbody key={countryInfo._id}>
                 <tr>

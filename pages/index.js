@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
@@ -20,6 +20,10 @@ export async function getStaticProps() {
 }
 
 const Results = ({ results }) => {
+  const [isDescending, sortData] = useState(false);
+
+  console.log(results);
+
   return (
     <div className={styles.container}>
       <Navbar />
@@ -31,6 +35,18 @@ const Results = ({ results }) => {
             <th className={cx(styles.cell, styles.cellHeadings)}>Country</th>
             <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Cases
+              <br />
+              <button
+                onClick={() =>
+                  sortData(
+                    results.sort((a, b) =>
+                      a.todayCases < b.todayCases ? 1 : -1
+                    )
+                  )
+                }
+              >
+                sort descending
+              </button>
             </th>
             <th className={cx(styles.cell, styles.cellHeadings)}>
               Today&#39;s Recovered

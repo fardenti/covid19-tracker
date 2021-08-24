@@ -36,6 +36,12 @@ const Results = ({ results }) => {
       isDescending ? sortToDescending(columnName) : sortToAscending(columnName),
     [columnName, isDescending]
   );
+
+  const total = (value) => {
+    const sum = results.reduce((number, data) => number + data[value], 0);
+    return sum;
+  };
+
   console.log(results);
 
   return (
@@ -43,6 +49,11 @@ const Results = ({ results }) => {
       <Navbar />
       <h2 className={styles.topHeader}>Covid 19 Tracker</h2>
       <h3 className={styles.date}>Last updated: {todaysDate()}</h3>
+      <div className={styles.totalNumbers}>
+        <h3>Total Cases: {total("cases")}</h3>
+        <h3>Total Death: {total("deaths")}</h3>
+      </div>
+
       <table className={styles.table}>
         <thead className={styles.thead}>
           <tr>

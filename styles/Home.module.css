@@ -12,7 +12,6 @@
   width: auto;
   position: relative;
   border-collapse: collapse;
-  z-index: 1000;
 }
 
 .topHeader {
@@ -45,6 +44,7 @@
 .thead tr th {
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 .cellHeadings {
   background-color: rgb(196 172 105);
@@ -57,4 +57,16 @@
 
 .countryName {
   text-align: left;
+}
+
+.totalNumbers {
+  margin: 1em auto;
+}
+
+.totalNumbers h3 {
+  display: inline-block;
+  margin: 0 1em;
+  font-size: 1.5em;
+  color: rgb(111, 111, 111);
+  text-align: center;
 }

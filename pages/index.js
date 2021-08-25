@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar.js";
+import Chart from "../components/Chart.js";
 import todaysDate from "../components/Date.js";
 import cx from "classnames";
 
@@ -46,6 +47,7 @@ const Results = ({ results }) => {
 
   return (
     <div className={styles.container}>
+      <Chart />
       <Navbar />
       <h2 className={styles.topHeader}>Covid 19 Tracker</h2>
       <h3 className={styles.date}>Last updated: {todaysDate()}</h3>

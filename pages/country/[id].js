@@ -30,7 +30,15 @@ const Country = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  const { country, population, countryInfo, cases, critical, recovered } = data;
+  const {
+    country,
+    population,
+    countryInfo,
+    cases,
+    deaths,
+    critical,
+    recovered,
+  } = data;
   return (
     <div className={styles.container}>
       <Navbar />
@@ -59,6 +67,9 @@ const Country = () => {
             Total cases to date:
           </td>
           <td className={cx(styles.cell, styles.cellHeadings)}>
+            Total deaths to date:
+          </td>
+          <td className={cx(styles.cell, styles.cellHeadings)}>
             Total recovered to date:
           </td>
           <td className={cx(styles.cell, styles.cellHeadings)}>
@@ -78,6 +89,7 @@ const Country = () => {
           </td>
           <td className={styles.cell}>{population}</td>
           <td className={styles.cell}>{cases}</td>
+          <td className={styles.cell}>{deaths}</td>
           <td className={styles.cell}>{recovered}</td>
           <td className={styles.cell}>{critical}</td>
         </tr>

@@ -46,7 +46,7 @@ const Results = ({ results }) => {
   const deathsValue = (countryName) =>
     results.find((e) => e.country === countryName);
 
-  const BarChart = (total) => {
+  const BarChart = () => {
     return (
       <div>
         <Bar
@@ -54,7 +54,7 @@ const Results = ({ results }) => {
             labels: ["UK", "USA"],
             datasets: [
               {
-                label: "number of Deaths",
+                label: "Number of Deaths",
                 data: [deathsValue("UK").deaths, deathsValue("USA").deaths],
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.2)",
@@ -63,6 +63,19 @@ const Results = ({ results }) => {
                 borderColor: [
                   "rgba(255, 99, 132, 0.2)",
                   "rgba(255, 99, 132, 0.2)",
+                ],
+                borderWidth: 1,
+              },
+              {
+                label: "Number of Cases",
+                data: [deathsValue("UK").cases, deathsValue("USA").cases],
+                backgroundColor: [
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
+                ],
+                borderColor: [
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
                 ],
                 borderWidth: 1,
               },

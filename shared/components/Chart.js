@@ -14,7 +14,7 @@ export async function getStaticProps() {
 }
 
 const BarChart = ({ results }) => {
-  console.log(results);
+  // console.log(results);
 
   return (
     <div>

@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import CircleLoader from "react-spinners/CircleLoader";
 import Image from "next/image";
-import Navbar from "../../components/Navbar.js";
-import todaysDate from "../../components/Date.js";
+import Navbar from "../../shared/components/Navbar.js";
+import todaysDate from "../../shared/components/Date.js";
 import cx from "classnames";
 
 import styles from "../../styles/Home.module.css";

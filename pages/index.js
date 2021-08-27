@@ -58,6 +58,7 @@ const Results = ({ results }) => {
             <th className={cx(styles.cell, styles.cellHeadings)}>
               Country <br />
               <button
+                className={styles.filterButtons}
                 onClick={() => {
                   if (columnName === "country") {
                     setIsDescending(!isDescending);
@@ -74,6 +75,7 @@ const Results = ({ results }) => {
               Today&#39;s Cases
               <br />
               <button
+                className={styles.filterButtons}
                 onClick={() => {
                   if (columnName === "todayCases") {
                     setIsDescending(!isDescending);
@@ -90,6 +92,7 @@ const Results = ({ results }) => {
               Today&#39;s Recovered
               <br />
               <button
+                className={styles.filterButtons}
                 onClick={() => {
                   if (columnName === "todayRecovered") {
                     setIsDescending(!isDescending);
@@ -106,6 +109,7 @@ const Results = ({ results }) => {
               Today&#39;s Deaths
               <br />
               <button
+                className={styles.filterButtons}
                 onClick={() => {
                   if (columnName === "todayDeaths") {
                     setIsDescending(!isDescending);

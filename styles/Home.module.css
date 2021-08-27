@@ -47,7 +47,7 @@
   z-index: 1000;
 }
 .cellHeadings {
-  background-color: rgb(196 172 105);
+  background-color: #7aabbd;
   color: #ffffff;
   font-weight: normal;
   padding: 20px 30px;
@@ -69,4 +69,20 @@
   font-size: 1.5em;
   color: rgb(111, 111, 111);
   text-align: center;
+}
+
+.filterButtons {
+  margin-top: 1em;
+  font-size: 0.7em;
+  padding: 0.25em 1em;
+  border: none;
+  border-radius: 10px;
+  color: #6f6f6f;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.filterButtons:hover {
+  background-color: rgb(57 114 140);
+  color: #ffffff;
 }

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Navbar from "../shared/components/Navbar.js";
 import todaysDate from "../shared/components/Date.js";
 import cx from "classnames";
-import { Bar } from "react-chartjs-2";
 
 import styles from "../styles/Home.module.css";
 
@@ -43,57 +42,9 @@ const Results = ({ results }) => {
     return sum;
   };
 
-  const deathsValue = (countryName) =>
-    results.find((e) => e.country === countryName);
-
-  const BarChart = () => {
-    return (
-      <div>
-        <Bar
-          data={{
-            labels: ["UK", "USA"],
-            datasets: [
-              {
-                label: "Number of Deaths",
-                data: [deathsValue("UK").deaths, deathsValue("USA").deaths],
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.2)",
-                  "rgba(255, 99, 132, 0.2)",
-                ],
-                borderColor: [
-                  "rgba(255, 99, 132, 0.2)",
-                  "rgba(255, 99, 132, 0.2)",
-                ],
-                borderWidth: 1,
-              },
-              {
-                label: "Number of Cases",
-                data: [deathsValue("UK").cases, deathsValue("USA").cases],
-                backgroundColor: [
-                  "rgba(54, 162, 235, 0.2)",
-                  "rgba(54, 162, 235, 0.2)",
-                ],
-                borderColor: [
-                  "rgba(54, 162, 235, 0.2)",
-                  "rgba(54, 162, 235, 0.2)",
-                ],
-                borderWidth: 1,
-              },
-            ],
-          }}
-          height={400}
-          width={400}
-          options={{ maintainAspectRatio: false }}
-        />
-      </div>
-    );
-  };
-  console.log(results);
-
   return (
     <div className={styles.container}>
       <Navbar />
-      {BarChart()}
       <h2 className={styles.topHeader}>Covid 19 Tracker</h2>
       <h3 className={styles.date}>Last updated: {todaysDate()}</h3>
       <div className={styles.totalNumbers}>

@@ -44,21 +44,7 @@ const Country = () => {
       <Navbar />
       <h2 className={styles.topHeader}>Details for {country}</h2>
       <h3 className={styles.date}>Last updated: {todaysDate()}</h3>
-      {/* <div className={styles.container}>
-        <h3 className={styles.title}>Country:</h3>
-        <div>
-          <span>
-            <Image
-              src={countryInfo.flag}
-              alt="flag"
-              className={styles.image}
-              width={20}
-              height={20}
-            />{" "}
-            {country}
-          </span>
-        </div>
-      </div> */}
+
       <table className={styles.detailsTable}>
         <tr>
           <td className={cx(styles.cell, styles.cellHeadings)}>Country:</td>

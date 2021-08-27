@@ -27,7 +27,10 @@ const Navbar = () => {
           <Link href="/">Home</Link>
         </Text>
         <Text>
-          <Link href="/login">Login / Register</Link>
+          <Link href="/chartPage">Chart Page</Link>
+        </Text>
+        <Text>
+          <Link href="/#">Login / Register</Link>
         </Text>
       </ul>
     </NavbarWrapper>

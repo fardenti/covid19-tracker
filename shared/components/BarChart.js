@@ -1,6 +1,7 @@
+import React from "react";
 import { Bar } from "react-chartjs-2";
 
-export const barChart = ({ results }) => {
+const BarChart = ({ results }) => {
   const findValues = (countryName) =>
     results.find((e) => e.country === countryName);
 
@@ -45,3 +46,5 @@ export const barChart = ({ results }) => {
     </div>
   );
 };
+
+export default BarChart;
